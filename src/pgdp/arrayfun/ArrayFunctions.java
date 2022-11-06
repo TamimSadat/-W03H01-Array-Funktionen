@@ -1,6 +1,8 @@
 package pgdp.arrayfun;
 
 import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.*;
 
 public class ArrayFunctions {
 
@@ -10,7 +12,10 @@ public class ArrayFunctions {
 
     public static void main(String[] args) {
         //example call
-        System.out.println(Arrays.toString(zip(new int[]{1, 3}, new int[]{2, 4})));
+       // System.out.println(Arrays.toString(zip(new int[]{1, 3}, new int[]{2, 4})));
+        int[] array = new int[] {2000000000, 2000000000, 2000000000};
+        System.out.println(sumOfSquares(array));
+
     }
 
     /** Berechnet für das übergebene Array die Summe der Quadrate der Einträge.
@@ -21,7 +26,17 @@ public class ArrayFunctions {
      */
     public static long sumOfSquares(int[] array) {
         // TODO
-        return 0L;
+       long sum = 0;
+       long square = 1;
+        for (int i = 0; i < array.length; i++) {
+            square = (long) array[i] * array[i];
+            sum += square;
+        }
+        if (sum < 0) {
+            System.out.println("Overflow!");
+        return -1;
+        }
+        return sum;
     }
 
 
@@ -34,6 +49,7 @@ public class ArrayFunctions {
      */
     public static int[] zip(int[] a, int[] b) {
         // TODO
+
         return null;
     }
 
