@@ -12,9 +12,9 @@ public class ArrayFunctions {
 
     public static void main(String[] args) {
         //example call
-       // System.out.println(Arrays.toString(zip(new int[]{1, 3}, new int[]{2, 4})));
-        int[] array = new int[] {2000000000, 2000000000, 2000000000};
-        System.out.println(sumOfSquares(array));
+       System.out.println(Arrays.toString(zip(new int[]{1, 3, 5, 7, 9, 11}, new int[]{2, 4, 6, 8, 10, 12, 14})));
+        //int[] array = new int[] {2000000000, 2000000000, 2000000000};
+        //System.out.println(sumOfSquares(array));
 
     }
 
@@ -38,8 +38,6 @@ public class ArrayFunctions {
         }
         return sum;
     }
-
-
     /** Methode, die zwei Arrays zu einem verbindet, indem sie abwechselnd Einträge des ersten und des zweiten Input-
      *  Arrays verwendet.
      *
@@ -49,8 +47,65 @@ public class ArrayFunctions {
      */
     public static int[] zip(int[] a, int[] b) {
         // TODO
-
-        return null;
+        if (a.length == b.length) {
+            int k = a.length + b.length;
+            int[] aundb = new int[a.length + b.length];
+            int j = 0;
+            for (int i = 0; i < k; i += 2) {
+                aundb[i] += a[j];
+                j++;
+            }
+            int w = 0;
+            for (int i = 1; i < k; i += 2) {
+                aundb[i] += b[w];
+                w++;
+            }
+            return aundb;
+        }
+        else if (a.length > b.length) {
+            int k = a.length + b.length;
+            int[] aundb = new int[a.length + b.length];
+            int j = 0;
+            int w = 0;
+            for (int i = 0; i < b.length * 2; i += 2) {
+                    aundb[i] += a[j];
+                    j++;
+            }
+            for (int q = 1; q < (b.length * 2); q += 2) {
+                    aundb[q] += b[w];
+                    w++;
+            }
+            int e = b.length;
+            int u = b.length * 2;
+            for (int i = 0; i < a.length - b.length; i++) {
+                aundb[u] += a[e];
+                u++;
+                e++;
+            }
+            return aundb;
+        }
+        else {
+            int k = a.length + b.length;
+            int[] aundb = new int[a.length + b.length];
+            int j = 0;
+            int w = 0;
+            for (int i = 0; i < (a.length * 2); i += 2) {
+                aundb[i] += a[j];
+                j++;
+            }
+            for (int q = 1; q < (a.length * 2); q += 2) {
+                aundb[q] += b[w];
+                w++;
+            }
+            int e = a.length;
+            int u = a.length * 2;
+            for (int i = 0; i < b.length - a.length; i++) {
+                aundb[u] += b[e];
+                u++;
+                e++;
+            }
+            return aundb;
+        }
     }
 
     /** Methode, die eine beliebige Zahl an Arrays (dargestellt als Array von Arrays) zu einem einzigen Array verbindet,
