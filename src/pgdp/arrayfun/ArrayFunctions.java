@@ -12,9 +12,11 @@ public class ArrayFunctions {
 
     public static void main(String[] args) {
         //example call
-        System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}, {}})));
+        //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
+        int[] array = new int[] {1, 2, 3, 6, 5, 9, 17, 21};
+        System.out.println(Arrays.toString(filter(array, 4, 6)));
 
     }
 
@@ -118,23 +120,21 @@ public class ArrayFunctions {
     public static int[] zipMany(int[][] arrays) {
             // TODO
             int k = 0;//Neue Array Länge
-            for (int i = 0; i < arrays.length; i++) {//Summe der einzelnen Elemente aller Arrays wird berechnet
-                k += arrays[i].length;
-            }
-            int[] newArray = new int[k];
-            int d = 0;
-
-            for (int c = 0; d < k; c++) {
-
-                for (int j = 0; j < arrays.length; j++) {//geht bis zur Länge des Arrays bzw. Anzahl der Reihen
-                    if (arrays[j].length > c) {
-                        newArray[d] = arrays[j][c];
+        for (int[] ints : arrays) {//Summe der einzelnen Elemente aller Arrays wird berechnet
+            k += ints.length;
+        }
+        int[] newArray = new int[k];
+        int d = 0;
+        for (int c = 0; d < k; c++) {
+                for (int[] array : arrays) {//geht bis zur Länge des Arrays bzw. Anzahl der Reihen
+                    if (array.length > c) {
+                        newArray[d] = array[c];
                         d++;
                     }
                 }
 
-            }
-            return newArray;
+        }
+        return newArray;
     }
 
 
@@ -148,7 +148,13 @@ public class ArrayFunctions {
      */
     public static int[] filter(int[] array,int min,int max) {
         // TODO
-        return null;
+        int newArray[] = new int[max - min + 1];
+        int j = 0;
+        for (int i = min; i < max + 1; i++) {
+            newArray[j] = array[i];
+            j++;
+        }
+        return newArray;
     }
 
     /** Rotiert das übergebene Array um die übergebene Anzahl an Schritten nach rechts.
