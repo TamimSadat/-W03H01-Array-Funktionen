@@ -15,8 +15,8 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-        int[] array = new int[] {1, 2, 3, 6, 5, 9, 17, 21};
-        System.out.println(Arrays.toString(filter(array, 4, 2)));
+        int[] array = new int[] {1, 2, 3, 6, 5, 9, 17, 21, 1, 5};
+        System.out.println(Arrays.toString(filter(array, 10, 9)));
 
     }
 
@@ -149,11 +149,10 @@ public class ArrayFunctions {
     public static int[] filter(int[] array,int min,int max) {
         // TODO
         if (max < min) {
-            int newArray[] = new int[0];
-            return newArray;
+            return new int[0];
         }
         else {
-        int newArray[] = new int[max - min + 1];
+        int[] newArray = new int[max - min + 1];
         int j = 0;
         for (int i = min; i < max + 1; i++) {
             newArray[j] = array[i];
