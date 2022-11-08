@@ -12,9 +12,9 @@ public class ArrayFunctions {
 
     public static void main(String[] args) {
         //example call
-       System.out.println(Arrays.toString(zip(new int[]{1, 3, 5, 7, 9, 11}, new int[]{2, 4, 6, 8, 10, 12, 14})));
-        //int[] array = new int[] {2000000000, 2000000000, 2000000000};
-        //System.out.println(sumOfSquares(array));
+        System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}, {}})));
+       // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
+       // System.out.println(sumOfSquares(array));
 
     }
 
@@ -114,10 +114,29 @@ public class ArrayFunctions {
      * @param arrays Array von Integer-Arrays
      * @return Die Arrays in 'arrays' zusammengezipped
      */
+
     public static int[] zipMany(int[][] arrays) {
-        // TODO
-        return null;
+            // TODO
+            int k = 0;//Neue Array Länge
+            for (int i = 0; i < arrays.length; i++) {//Summe der einzelnen Elemente aller Arrays wird berechnet
+                k += arrays[i].length;
+            }
+            int[] newArray = new int[k];
+            int d = 0;
+
+            for (int c = 0; d < k; c++) {
+
+                for (int j = 0; j < arrays.length; j++) {//geht bis zur Länge des Arrays bzw. Anzahl der Reihen
+                    if (arrays[j].length > c) {
+                        newArray[d] = arrays[j][c];
+                        d++;
+                    }
+                }
+
+            }
+            return newArray;
     }
+
 
     /** Behält aus dem übergebenen Array nur die Einträge, die innerhalb der übergebenen Grenzen liegen.
      *  Gibt das Ergebnis als neues Array zurück.
