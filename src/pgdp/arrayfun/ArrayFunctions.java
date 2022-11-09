@@ -19,7 +19,7 @@ public class ArrayFunctions {
      // int[] array = new int[] {1, 2, 3, 4, 5};
      //  System.out.println(Arrays.toString(filter(array, 2, 4)));
         int[] array = new int[] {1, 2, 3, 4, 5};
-      rotate(array, 1);
+      rotate(array, -1);
        // int[] array = new int[] {1, 2, 3, 3, 4};
         // System.out.println(Arrays.deepToString(quantities(array)));
     }
@@ -187,7 +187,10 @@ public class ArrayFunctions {
                 }
                 newArray[0] = y;
             }
-            System.out.println(Arrays.toString(newArray));
+            for (int i = 0; i < newArray.length; i++) {
+                array[i] = newArray[i];
+            }
+            System.out.println(Arrays.toString(array));
         }
         else if (amount < 0) {
             int[] newArray = new int[array.length];
@@ -202,7 +205,10 @@ public class ArrayFunctions {
                 }
                 newArray[newArray.length - 1] = y;
             }
-            System.out.println(Arrays.toString(newArray));
+            for (int i = 0; i < newArray.length; i++) {
+                array[i] = newArray[i];
+            }
+            System.out.println(Arrays.toString(array));
 
         }
         else {
@@ -210,7 +216,10 @@ public class ArrayFunctions {
             for (int i = 0; i < array.length; i++) {//Werte des ursprünglichen Arrays ins neue Array
                 newArray[i] = array[i];
             }
-            System.out.println(Arrays.toString(newArray));
+            for (int i = 0; i < newArray.length; i++) {
+                array[i] = newArray[i];
+            }
+            System.out.println(Arrays.toString(array));
         }
     }
 
