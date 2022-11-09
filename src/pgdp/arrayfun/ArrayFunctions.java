@@ -15,8 +15,11 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-        int[] array = new int[] {1, 2, 3, 6, 5, 9, 17, 21, 1, 5};
-        System.out.println(Arrays.toString(filter(array, 10, 9)));
+       int[] array = new int[] {};
+        System.out.println(Arrays.toString(filter(array, 2, 3)));
+        //int[] array = new int[] {1, 2, 3, 4, 5};
+        // rotate(array, 2);
+
 
     }
 
@@ -148,7 +151,7 @@ public class ArrayFunctions {
      */
     public static int[] filter(int[] array,int min,int max) {
         // TODO
-        if (max < min) {
+        if (max < min || array.length == 0) {
             return new int[0];
         }
         else {
@@ -170,6 +173,13 @@ public class ArrayFunctions {
      */
     public static void rotate(int[] array, int amount) {
         //TODO
+        int[] newArray = new int[array.length];
+        int w = 0;
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = array[w + amount];
+            w++;
+        }
+        System.out.println(newArray);
     }
 
     /** Zählt die Anzahl an Vorkommen jeder Zahl im übergebenen Array, die in diesem mindestens einmal vorkommt.
