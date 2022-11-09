@@ -15,10 +15,10 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-       int[] array = new int[] {};
-        System.out.println(Arrays.toString(filter(array, 2, 3)));
-        //int[] array = new int[] {1, 2, 3, 4, 5};
-        // rotate(array, 2);
+      // int[] array = new int[] {1, 2, 3, 4, 5, 6, 7};
+       // System.out.println(Arrays.toString(filter(array, 2, 6)));
+        int[] array = new int[] {1, 2, 3, 4, 5};
+        rotate(array, -1);
 
 
     }
@@ -173,13 +173,44 @@ public class ArrayFunctions {
      */
     public static void rotate(int[] array, int amount) {
         //TODO
-        int[] newArray = new int[array.length];
-        int w = 0;
-        for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = array[w + amount];
-            w++;
+        if (amount > 0) {
+            int[] newArray = new int[array.length];
+            for (int i = 0; i < array.length; i++) {//Werte des ursprünglichen Arrays ins neue Array
+                newArray[i] = array[i];
+            }
+            for (int i = 0; i < amount; i++) {
+                int y; //letzte Array index
+                y = newArray[newArray.length - 1];
+                for (int j = newArray.length - 1; j > 0; j--) {//Array Stelle wechselt um 1
+                    newArray[j] = newArray[j - 1];
+                }
+                newArray[0] = y;
+            }
+            System.out.println(Arrays.toString(newArray));
         }
-        System.out.println(newArray);
+        else if (amount < 0) {
+            int[] newArray = new int[array.length];
+            for (int i = 0; i < array.length; i++) {//Werte des ursprünglichen Arrays ins neue Array
+                newArray[i] = array[i];
+            }
+            for (int i = 0; i < amount * -1; i++) {
+                int y; //erste Array index
+                y = newArray[0];
+                for (int j = 0; j < newArray.length - 1; j++) {//Array Stelle wechselt um 1
+                    newArray[j] = newArray[j + 1];
+                }
+                newArray[newArray.length - 1] = y;
+            }
+            System.out.println(Arrays.toString(newArray));
+
+        }
+        else {
+            int[] newArray = new int[array.length];
+            for (int i = 0; i < array.length; i++) {//Werte des ursprünglichen Arrays ins neue Array
+                newArray[i] = array[i];
+            }
+            System.out.println(Arrays.toString(newArray));
+        }
     }
 
     /** Zählt die Anzahl an Vorkommen jeder Zahl im übergebenen Array, die in diesem mindestens einmal vorkommt.
