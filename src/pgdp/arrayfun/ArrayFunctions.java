@@ -16,8 +16,8 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-     int[] array = new int[] {0, 1, 2, 3};
-     System.out.println(Arrays.toString(filter(array,3, 3)));
+     int[] array = new int[] {-1, 0, 1, 2, 3};
+     System.out.println(Arrays.toString(filter(array,0, 3)));
         //int[] array = new int[] {};
       //rotate(array, 1);
        // int[] array = new int[] {1, 2, 3};
@@ -166,16 +166,12 @@ public class ArrayFunctions {
         }
         int m = 0;
         int[] realArray = new int[d];
-        for (int i = 0; i < newArray.length; i++) {
-            if (newArray[i] <= max && newArray[i] >= min && m < realArray.length) {
-                m++;
-                for (int j = 0; j < d; j++) {
-                    realArray[j] = newArray[i];
-                    i++;
-                }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= max && array[i] >= min) {
+                    realArray[m] = array[i];
+                    m++;
             }
         }
-
         return realArray;
     }
 
