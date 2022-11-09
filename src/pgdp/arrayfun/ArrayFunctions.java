@@ -16,8 +16,8 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-     int[] array = new int[] {1, 2, 3, 4, 5};
-     System.out.println(Arrays.toString(filter(array, 6, 4)));
+     int[] array = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+     System.out.println(Arrays.toString(filter(array,3, 7)));
         //int[] array = new int[] {};
       //rotate(array, 1);
        // int[] array = new int[] {1, 2, 3};
@@ -152,36 +152,32 @@ public class ArrayFunctions {
      */
     public static int[] filter(int[] array,int min,int max) {
         // TODO
-        for (int w = 0; w < 1; w++) {
-            int negativgleichMin = -1 * min;
-            int negativgleichMax = -1 * max;
-
-            if (max == negativgleichMin || min == negativgleichMax) {
-                return array;
-            }
-            else if (min == max) {
-                int[] NewArray = new int[] {min};
-                return NewArray;
-            }
-            else if (min == Integer.MIN_VALUE && max == Integer.MAX_VALUE) {
-                return array;
-            }
-
-            if (max < min || array.length == 0) {
-                return new int[0];
-            }
-            else {
-                int[] newArray = new int[max - min + 1];
-                int j = 0;
-                for (int i = min; i < max + 1; i++) {
-                    newArray[j] = array[i];
-                    j++;
-                }
-                return newArray;
+        int[] newArray = new int[array.length];
+        if (min > max) {
+            int[] newArray0 = new int[0];
+            return newArray0;
+        }
+        int d = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= min && array[i] <= max) {
+                newArray[i] = array[i];
+                d++;
             }
         }
-   return null;
+        int m = 0;
+        int[] realArray = new int[d];
+        for (int i = 0; i < newArray.length; i++) {
+            if (newArray[i] != 0) {
+                for (int j = 0; j < d; j++) {
+                    realArray[j] = newArray[i];
+                    i++;
+                }
+            }
+        }
+
+        return realArray;
     }
+
 
     /** Rotiert das übergebene Array um die übergebene Anzahl an Schritten nach rechts.
      *  Das Array wird In-Place rotiert. Es gibt keine Rückgabe.
