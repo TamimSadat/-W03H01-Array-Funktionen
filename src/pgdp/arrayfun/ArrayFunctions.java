@@ -1,5 +1,6 @@
 package pgdp.arrayfun;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.*;
@@ -15,12 +16,12 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-      // int[] array = new int[] {1, 2, 3, 4, 5, 6, 7};
-       // System.out.println(Arrays.toString(filter(array, 2, 6)));
+     // int[] array = new int[] {1, 2, 3, 4, 5};
+     //  System.out.println(Arrays.toString(filter(array, 2, 4)));
         int[] array = new int[] {1, 2, 3, 4, 5};
-        rotate(array, -1);
-
-
+      rotate(array, 1);
+       // int[] array = new int[] {1, 2, 3, 3, 4};
+        // System.out.println(Arrays.deepToString(quantities(array)));
     }
 
     /** Berechnet für das übergebene Array die Summe der Quadrate der Einträge.
@@ -225,6 +226,15 @@ public class ArrayFunctions {
      */
     public static int[][] quantities(int[] array) {
         // TODO
+        int z = 0;// Vorkommende Zahlen
+        ArrayList<Integer> y = new ArrayList<>(); //unterschiedliche Zahlen
+        for (int i = 0; i < array.length; i++) {
+            if (!y.contains(array[i])) {
+                y.add(array[i]);
+            }
+        }
+        z = y.size();
+        System.out.println(z);
         return null;
     }
 }
