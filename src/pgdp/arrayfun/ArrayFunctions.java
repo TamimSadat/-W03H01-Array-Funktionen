@@ -16,12 +16,12 @@ public class ArrayFunctions {
         //System.out.println(Arrays.toString(zipMany(new int[][] {{1, 4}, {2, 5}, {3,6}, {9}})));
        // int[] array = new int[] {1286753231,5345865,655867680,65976867,78597585,5749658,648596};
        // System.out.println(sumOfSquares(array));
-     int[] array = new int[] {-1, 0, 1, 2, 3};
-     System.out.println(Arrays.toString(filter(array,0, 3)));
+    // int[] array = new int[] {-1, 0, 1, 2, 3};
+    // System.out.println(Arrays.toString(filter(array,0, 3)));
         //int[] array = new int[] {};
       //rotate(array, 1);
-       // int[] array = new int[] {1, 2, 3};
-        //System.out.println(Arrays.deepToString(quantities(array)));
+       int[] array = new int[] {1, 2, 4, 4, 4,  3, 3, 10, 9, 9};
+        System.out.println(Arrays.deepToString(quantities(array)));
     }
 
     /** Berechnet für das übergebene Array die Summe der Quadrate der Einträge.
@@ -264,7 +264,26 @@ public class ArrayFunctions {
             }
         }
         z = y.size();
-        System.out.println(z);
-        return null;
+
+        int[][] array2d = new int[z][2];
+        for (int i = 0; i < z; i++) {
+           array2d[i][0] = y.get(i);
+        }
+
+
+        int i = 0;
+        for (int k = 0; k < z; k++) {
+            int c = 0;
+            for (int j = 0; j < array.length; j++) {
+                if (y.get(k) == array[j]) {
+                        c++;
+                }
+            }
+            if (i < z) {
+            array2d[i][1] = c;
+            }
+            i++;
+        }
+        return array2d;
     }
 }
